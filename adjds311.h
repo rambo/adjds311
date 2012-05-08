@@ -3,6 +3,11 @@
 #define adjds311_h
 #include <Arduino.h> 
 #include <i2c_device.h>
+#ifndef ADJDS311_LED_PIN
+#define ADJDS311_LED_PIN 13
+#endif
+
+
 
 class adjds311 : public i2c_device
 {
@@ -16,13 +21,16 @@ class adjds311 : public i2c_device
 
         boolean write_gains();
         boolean read_data();
+        boolean read_color();
+        boolean read_offset();
 
         // Gain registers
-        byte gain_caps[4]; // Red, Green, Blue, Clear
-        unsigned int gain_integrators[4]; // Red, Green, Blue, Clear
+        byte gain_caps[4]; // Red, Green, Blue, Clear (note that values must be <= 0xf)
+        unsigned int gain_integrators[4]; // Red, Green, Blue, Clear (note that values must be <= 0xfff)
 
         // Raw color values
         unsigned int color_values[4];
+        byte offset_values[4];
 };
 
 
