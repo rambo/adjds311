@@ -19,6 +19,7 @@ void setup()
     // Scan the bus
     //I2c.scan();
 
+    // initialize the board
     color.begin();
 
     Serial.println("Booted");
@@ -27,10 +28,29 @@ void setup()
 
 void loop()
 {
+    if (color.read_data())
+    {
+        Serial.print("Red 0x");
+        Serial.println(color.color_values[0], HEX);
+        Serial.print("Green 0x");
+        Serial.println(color.color_values[1], HEX);
+        Serial.print("Blue 0x");
+        Serial.println(color.color_values[2], HEX);
+        Serial.print("Clear 0x");
+        Serial.println(color.color_values[3], HEX);
+    }
+    else
+    {
+        Serial.println("Color acquire failed");
+    }
+    
+    /*
     // Dump device registers and wait 5sek
     Serial.println("=== Dump ===");
     color.dump_registers(0x0, 0x47);
     Serial.println("=== Done ===");
 
     delay(15000);
+    */
+    delay(1000);
 }

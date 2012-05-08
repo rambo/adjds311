@@ -15,11 +15,14 @@ class adjds311 : public i2c_device
         void begin();
 
         boolean write_gains();
-        
+        boolean read_data();
 
+        // Gain registers
         byte gain_caps[4]; // Red, Green, Blue, Clear
         unsigned int gain_integrators[4]; // Red, Green, Blue, Clear
-        
+
+        // Raw color values
+        unsigned int color_values[4];
 };
 
 
