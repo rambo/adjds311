@@ -19,6 +19,7 @@ void setup()
     // Scan the bus
     //I2c.scan();
 
+    color.begin();
 
     Serial.println("Booted");
 }
