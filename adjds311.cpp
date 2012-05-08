@@ -37,6 +37,12 @@ void adjds311::begin()
     this->begin(true);
 }
 
+boolean adjds311::set_trim(boolean enable)
+{
+    enable = enable & B1;
+    this->read_modify_write(0x1, (byte)~B1, enable);
+}
+
 boolean adjds311::write_gains()
 {
     boolean ret1 = this->write_many(0x6, 4, gain_caps);

@@ -22,6 +22,7 @@ void setup()
 
     // initialize the board
     color.begin();
+    color.set_trim(true);
 
     Serial.println("Booted");
 }
@@ -59,8 +60,7 @@ void loop()
     Serial.println("=== Dump ===");
     color.dump_registers(0x0, 0x4b);
     Serial.println("=== Done ===");
-
-    delay(15000);
     */
+
     delay(1000);
 }

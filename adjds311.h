@@ -19,6 +19,7 @@ class adjds311 : public i2c_device
         void begin(boolean wire_begin);
         void begin();
 
+        boolean set_trim(boolean enable);
         boolean write_gains();
         boolean read_data();
         boolean read_color();
