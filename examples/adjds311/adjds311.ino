@@ -24,7 +24,7 @@ void setup()
     color.begin();
     color.set_trim(true);
 
-    Serial.println("Booted");
+    Serial.println(F("Booted"));
 }
 
 
@@ -32,34 +32,34 @@ void loop()
 {
     if (color.read_data())
     {
-        Serial.print("Red 0x");
+        Serial.print(F("Red 0x"));
         Serial.println(color.color_values[0], HEX);
-        Serial.print("Green 0x");
+        Serial.print(F("Green 0x"));
         Serial.println(color.color_values[1], HEX);
-        Serial.print("Blue 0x");
+        Serial.print(F("Blue 0x"));
         Serial.println(color.color_values[2], HEX);
-        Serial.print("Clear 0x");
+        Serial.print(F("Clear 0x"));
         Serial.println(color.color_values[3], HEX);
 
-        Serial.print("Red offset 0x");
+        Serial.print(F("Red offset 0x"));
         Serial.println(color.offset_values[0], HEX);
-        Serial.print("Green offset 0x");
+        Serial.print(F("Green offset 0x"));
         Serial.println(color.offset_values[1], HEX);
-        Serial.print("Blue offset 0x");
+        Serial.print(F("Blue offset 0x"));
         Serial.println(color.offset_values[2], HEX);
-        Serial.print("Clear offset 0x");
+        Serial.print(F("Clear offset 0x"));
         Serial.println(color.offset_values[3], HEX);
     }
     else
     {
-        Serial.println("Color acquire failed");
+        Serial.println(F("Color acquire failed"));
     }
     
     /*
     // Dump device registers and wait 5sek
-    Serial.println("=== Dump ===");
+    Serial.println(F("=== Dump ==="));
     color.dump_registers(0x0, 0x4b);
-    Serial.println("=== Done ===");
+    Serial.println(F("=== Done ==="));
     */
 
     delay(1000);
